@@ -7,4 +7,16 @@
     <color name="teal_700">#FF018786</color>
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
+    <color name="default_toolbar_color">#2d3748</color>
+    <color name="text_color">#edf2f7</color>
+    <color name="text_color_primary">#edf2f7</color>
+    <color name="text_color_secondary">#edf2f7</color>
+    <color name="color_accent">#A33838</color>
+    <color name="hint_color">#E5E9ED</color>
+    <color name="gray_800">#2d3748</color>
+    <color name="gray_600">#718096</color>
+    <color name="gray_100">#f7fafc</color>
+    <color name="gray_200">#edf2f7</color>
+    <color name="red_700">#A33838</color>
+    <color name="edit_text_background_color">#66718096</color>
 </resources>

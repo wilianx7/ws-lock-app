@@ -1,3 +1,17 @@
 <resources>
     <string name="app_name">WS Lock</string>
+    <string name="app_description">Fechadura Inteligente</string>
+    <string name="app_logo">WS Lock</string>
+    <string name="username">Usuário</string>
+    <string name="login_hint">Login ou e-mail</string>
+    <string name="name">Nome</string>
+    <string name="password">Senha</string>
+    <string name="sign">Entrar</string>
+    <string name="dont_have_account">Não tem uma conta?</string>
+    <string name="create_account">Crie uma!</string>
+    <string name="user_form">Cadastro de Usuário</string>
+    <string name="register_user">Cadastrar</string>
+    <string name="password_confirmation">Confirmação de senha</string>
+    <string name="name_hint">Nome</string>
+    <string name="email">E-mail</string>
 </resources>
