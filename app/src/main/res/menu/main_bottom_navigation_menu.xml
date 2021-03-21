@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/bottom_navigation_home_option"
+        android:enabled="true"
+        android:icon="@drawable/ic_baseline_home_24"
+        android:title="@string/bottom_navigation_home_option" />
+
+    <item
+        android:id="@+id/bottom_navigation_locks_option"
+        android:enabled="true"
+        android:icon="@drawable/ic_baseline_key_24"
+        android:title="@string/bottom_navigation_locks_option" />
+
+    <item
+        android:id="@+id/bottom_navigation_lock_histories_option"
+        android:enabled="true"
+        android:icon="@drawable/ic_baseline_history_24"
+        android:title="@string/bottom_navigation_lock_histories_option" />
+
+    <item
+        android:id="@+id/bottom_navigation_user_profile_option"
+        android:enabled="true"
+        android:icon="@drawable/ic_baseline_account_circle_24"
+        android:title="@string/bottom_navigation_user_profile_option" />
+</menu>

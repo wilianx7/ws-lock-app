@@ -14,4 +14,9 @@
     <string name="password_confirmation">Confirmação de senha</string>
     <string name="name_hint">Nome</string>
     <string name="email">E-mail</string>
+
+    <string name="bottom_navigation_home_option">Home</string>
+    <string name="bottom_navigation_locks_option">Fechaduras</string>
+    <string name="bottom_navigation_lock_histories_option">Histórico</string>
+    <string name="bottom_navigation_user_profile_option">Perfil</string>
 </resources>
