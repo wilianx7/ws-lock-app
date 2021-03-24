@@ -14,6 +14,8 @@
     <string name="password_confirmation">Confirmação de senha</string>
     <string name="name_hint">Nome</string>
     <string name="email">E-mail</string>
+    <string name="lock_list_illustration_description">Não há fechaduras cadastradas</string>
+    <string name="lock_list_floating_action_button_description">Adicionar nova fechadura</string>
 
     <string name="bottom_navigation_home_option">Home</string>
     <string name="bottom_navigation_locks_option">Fechaduras</string>
