@@ -1,5 +1,10 @@
 package com.unesc.wslock.models;
 
+
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
+
 import java.io.Serializable;
 import java.util.Date;
 import java.util.List;
@@ -86,5 +91,29 @@ public class Lock implements Serializable {
 
     public void setUsers(List<User> users) {
         this.users = users;
+    }
+
+    public String toJson() throws JSONException {
+        return "{\"lock_data\": {"
+                + "\"id\": \"" + this.id + "\","
+                + "\"name\": \"" + this.name + "\","
+                + "\"mac_address\": \"" + this.mac_address + "\","
+                + "\"users\": " + this.stringifyUsers()
+                + "}"
+                + "}";
+    }
+
+    private String stringifyUsers() throws JSONException {
+        JSONArray formattedUsers = new JSONArray();
+
+        for (User user : this.getUsers()) {
+            JSONObject obj = new JSONObject();
+
+            obj.put("id", user.getId());
+
+            formattedUsers.put(obj);
+        }
+
+        return formattedUsers.toString();
     }
 }
