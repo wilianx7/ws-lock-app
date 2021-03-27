@@ -12,12 +12,14 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.WSLock"
         android:usesCleartextTraffic="true">
-
+        <activity
+            android:name=".activities.LockFormActivity"
+            android:parentActivityName=".activities.MainActivity"
+            android:windowSoftInputMode="stateHidden" />
         <activity
             android:name=".activities.UserFormActivity"
             android:parentActivityName=".activities.LoginActivity"
             android:windowSoftInputMode="stateHidden" />
-
         <activity
             android:name=".activities.LoginActivity"
             android:windowSoftInputMode="stateHidden">
@@ -27,7 +29,6 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-
         <activity android:name=".activities.MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -36,4 +37,5 @@
             </intent-filter>
         </activity>
     </application>
+
 </manifest>

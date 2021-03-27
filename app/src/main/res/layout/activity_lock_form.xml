@@ -1,0 +1,123 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.core.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fillViewport="true">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <include
+            android:id="@+id/lock_form_toolbar"
+            layout="@layout/default_toolbar" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:gravity="center"
+            android:paddingHorizontal="16dp"
+            android:paddingVertical="12dp"
+            tools:ignore="UselessParent">
+
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="150dp"
+                android:contentDescription="@string/app_logo"
+                android:src="@drawable/lock_form_illustration" />
+
+            <com.google.android.material.textfield.TextInputLayout
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="12dp"
+                android:elevation="4dp"
+                android:textColorHint="@color/hint_color"
+                app:startIconDrawable="@drawable/ic_baseline_lock_closed_24"
+                app:startIconTint="@color/gray_200">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/lock_form_name_input"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/edit_text_background"
+                    android:hint="@string/lock_form_name_hint"
+                    android:inputType="textCapWords"
+                    android:padding="12dp"
+                    android:singleLine="true"
+                    android:textColor="@color/gray_200" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/lock_form_mac_address_input_layout"
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="12dp"
+                android:elevation="4dp"
+                android:textColorHint="@color/hint_color"
+                app:startIconDrawable="@drawable/ic_baseline_key_24"
+                app:startIconTint="@color/gray_200">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/lock_form_mac_address_input"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/edit_text_background"
+                    android:hint="@string/lock_form_mac_address_hint"
+                    android:inputType="text"
+                    android:padding="12dp"
+                    android:singleLine="true"
+                    android:textColor="@color/gray_200" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <TextView
+                android:id="@+id/lock_form_users_select_label"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="12dp"
+                android:text="@string/lock_form_users_select_label"
+                android:textAlignment="center"
+                android:textSize="16sp"
+                android:textStyle="bold" />
+
+            <ListView
+                android:id="@+id/lock_form_users_list"
+                android:layout_width="match_parent"
+                android:layout_height="250dp"
+                android:layout_marginTop="12dp"
+                android:background="@drawable/edit_text_background"
+                android:divider="@color/edit_text_background_color"
+                android:dividerHeight="1dp"
+                android:nestedScrollingEnabled="true" />
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/lock_form_save_button"
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:layout_marginTop="16dp"
+                android:background="@drawable/button_background"
+                android:text="@string/lock_form_save_btn"
+                android:textAllCaps="false"
+                android:textColor="@color/gray_200"
+                android:textStyle="bold"
+                android:typeface="sans"
+                app:backgroundTint="@null" />
+
+            <ProgressBar
+                android:id="@+id/lock_form_progress_bar"
+                style="?android:attr/progressBarStyle"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:visibility="gone" />
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+</androidx.core.widget.NestedScrollView>
