@@ -8,18 +8,20 @@ import retrofit2.Call;
 import retrofit2.http.Body;
 import retrofit2.http.DELETE;
 import retrofit2.http.GET;
+import retrofit2.http.Header;
 import retrofit2.http.PUT;
 import retrofit2.http.Path;
+import retrofit2.http.Query;
 
 public interface UserService {
     @GET("users")
-    Call<UserList> index();
+    Call<UserList> index(@Header("Authorization") String authorization, @Query("with_relations") String withRelations, @Query("has_access_to_lock_id") int hasAccessToLockId);
 
     @GET("users/{id}")
-    Call<User> show(@Path("id") String id);
+    Call<User> show(@Header("Authorization") String authorization, @Path("id") String id);
 
     @DELETE("users/{id}")
-    Call<Boolean> destroy(@Path("id") String id);
+    Call<Boolean> destroy(@Header("Authorization") String authorization, @Path("id") String id);
 
     @PUT("users/create-or-update")
     Call<User> createOrUpdate(@Body RequestBody object);
