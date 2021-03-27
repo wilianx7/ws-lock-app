@@ -51,8 +51,6 @@ public class UserFormActivity extends AppCompatActivity {
         toolbar.setNavigationIcon(R.drawable.ic_baseline_arrow_back_24);
         setSupportActionBar(toolbar);
 
-        this.progressBar.setVisibility(View.GONE);
-
         this.saveButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -79,6 +77,7 @@ public class UserFormActivity extends AppCompatActivity {
 
                 if (response.isSuccessful()) {
                     Toast.makeText(UserFormActivity.this, "Cadastrado com sucesso!", Toast.LENGTH_LONG).show();
+
                     startActivity(new Intent(UserFormActivity.this, LoginActivity.class));
                 } else {
                     Toast.makeText(UserFormActivity.this, "Houve um erro ao cadastrar o usuário", Toast.LENGTH_LONG).show();
