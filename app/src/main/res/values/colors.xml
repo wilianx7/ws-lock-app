@@ -15,7 +15,7 @@
     <color name="hint_color">#E5E9ED</color>
     <color name="edit_text_background_color">#66718096</color>
     <color name="divider_color">#edf2f7</color>
-    <color name="default_recycler_view_item_background_color">#2D4459</color>
+    <color name="default_list_view_item_background_color">#66718096</color>
 
     <color name="gray_100">#f7fafc</color>
     <color name="gray_200">#edf2f7</color>
@@ -27,4 +27,6 @@
     <color name="gray_900">#1a202c</color>
 
     <color name="red_700">#A33838</color>
+
+    <color name="blue_500">#03A9F4</color>
 </resources>

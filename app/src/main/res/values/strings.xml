@@ -2,20 +2,29 @@
     <string name="app_name">WS Lock</string>
     <string name="app_description">Fechadura Inteligente</string>
     <string name="app_logo">WS Lock</string>
-    <string name="username">Usuário</string>
-    <string name="login_hint">Login ou e-mail</string>
-    <string name="name">Nome</string>
-    <string name="password">Senha</string>
+
     <string name="sign">Entrar</string>
     <string name="dont_have_account">Não tem uma conta?</string>
     <string name="create_account">Crie uma!</string>
+
     <string name="user_form">Cadastro de Usuário</string>
+    <string name="username_hint">Usuário</string>
+    <string name="login_hint">Login ou e-mail</string>
     <string name="register_user">Cadastrar</string>
-    <string name="password_confirmation">Confirmação de senha</string>
+    <string name="password_hint">Senha</string>
+    <string name="password_confirmation_hint">Confirmação de senha</string>
     <string name="name_hint">Nome</string>
-    <string name="email">E-mail</string>
+    <string name="email_hint">E-mail</string>
+
     <string name="lock_list_illustration_description">Não há fechaduras cadastradas</string>
     <string name="lock_list_floating_action_button_description">Adicionar nova fechadura</string>
+    <string name="lock_list_lock_owner_description">Proprietário(a):</string>
+
+
+    <string name="lock_form_name_hint">Descrição da fechadura</string>
+    <string name="lock_form_mac_address_hint">Código da fechadura</string>
+    <string name="lock_form_users_select_label">Usuários com acesso a fechadura:</string>
+    <string name="lock_form_save_btn">Salvar</string>
 
     <string name="bottom_navigation_home_option">Home</string>
     <string name="bottom_navigation_locks_option">Fechaduras</string>
