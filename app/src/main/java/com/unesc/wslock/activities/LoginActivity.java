@@ -11,7 +11,6 @@ import androidx.appcompat.app.AppCompatActivity;
 import com.google.android.material.button.MaterialButton;
 import com.google.android.material.textfield.TextInputEditText;
 import com.google.android.material.textview.MaterialTextView;
-import com.unesc.wslock.MainActivity;
 import com.unesc.wslock.R;
 import com.unesc.wslock.dtos.AuthDTO;
 import com.unesc.wslock.localstorage.AuthenticatedUser;
@@ -44,7 +43,7 @@ public class LoginActivity extends AppCompatActivity {
 
         this.progressBar.setVisibility(View.GONE);
 
-//        this.checkAuthenticatedUser();
+        this.checkAuthenticatedUser();
 
         this.signInButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -64,7 +63,7 @@ public class LoginActivity extends AppCompatActivity {
     }
 
     private void checkAuthenticatedUser() {
-        if (AuthenticatedUser.getToken(LoginActivity.this) != null) {
+        if (!AuthenticatedUser.getToken(LoginActivity.this).equals("Bearer")) {
             // TODO: Splash loader
             this.refreshToken();
         }
@@ -72,7 +71,7 @@ public class LoginActivity extends AppCompatActivity {
 
     private void refreshToken() {
         AuthService authService = BaseService.getRetrofitInstance().create(AuthService.class);
-        Call<Auth> request = authService.refresh("Bearer" + AuthenticatedUser.getToken(LoginActivity.this));
+        Call<Auth> request = authService.refresh(AuthenticatedUser.getToken(LoginActivity.this));
 
         request.enqueue(new Callback<Auth>() {
             @Override

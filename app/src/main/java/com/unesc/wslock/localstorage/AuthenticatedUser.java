@@ -37,7 +37,7 @@ public class AuthenticatedUser {
     }
 
     public static String getToken(Context context) {
-        return getSharedPreferences(context).getString(TOKEN_KEY, null);
+        return "Bearer" + getSharedPreferences(context).getString(TOKEN_KEY, null);
     }
 
     private static SharedPreferences.Editor getSharedPreferencesEditor(Context context) {
