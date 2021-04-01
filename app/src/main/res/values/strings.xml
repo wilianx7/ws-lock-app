@@ -30,6 +30,7 @@
     <string name="last_activity_executed_by">Executada por:</string>
     <string name="home_list_open_lock">Destrancar</string>
     <string name="home_list_close_lock">Trancar</string>
+    <string name="register_first_lock">Cadastrar Primeira Fechadura</string>
 
     <string name="bottom_navigation_home_option">Home</string>
     <string name="bottom_navigation_locks_option">Fechaduras</string>
