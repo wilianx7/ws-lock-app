@@ -12,6 +12,9 @@ public interface AuthService {
     @POST("login")
     Call<Auth> login(@Body RequestBody object);
 
+    @POST("logout")
+    Call<Boolean> logout(@Header("Authorization") String authorization);
+
     @POST("refresh")
     Call<Auth> refresh(@Header("Authorization") String authorization);
 }
