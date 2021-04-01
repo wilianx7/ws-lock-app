@@ -27,7 +27,7 @@ import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 
-public class LockFragmentList extends Fragment {
+public class LockListFragment extends Fragment {
     private ListView lockListView;
     private LockListAdapter lockListAdapter;
     private ProgressBar progressBar;
