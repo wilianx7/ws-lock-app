@@ -27,7 +27,6 @@ public class LoginActivity extends AppCompatActivity {
     private TextInputEditText loginInput;
     private TextInputEditText passwordInput;
     private MaterialButton signInButton;
-    private MaterialTextView createAccountTextView;
     private ProgressBar progressBar;
 
     @Override
@@ -38,32 +37,25 @@ public class LoginActivity extends AppCompatActivity {
         this.loginInput = findViewById(R.id.login_input);
         this.passwordInput = findViewById(R.id.password_input);
         this.signInButton = findViewById(R.id.sign_in_button);
-        this.createAccountTextView = findViewById(R.id.create_account_text_view);
         this.progressBar = findViewById(R.id.login_progress_bar);
 
         this.progressBar.setVisibility(View.GONE);
 
         this.checkAuthenticatedUser();
 
-        this.signInButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                if (checkRequiredFields()) {
-                    login();
-                }
+        this.signInButton.setOnClickListener(v -> {
+            if (checkRequiredFields()) {
+                login();
             }
         });
 
-        this.createAccountTextView.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                startActivity(new Intent(LoginActivity.this, UserFormActivity.class));
-            }
-        });
+        MaterialTextView createAccountTextView = findViewById(R.id.create_account_text_view);
+
+        createAccountTextView.setOnClickListener(v -> startActivity(new Intent(LoginActivity.this, UserFormActivity.class)));
     }
 
     private void checkAuthenticatedUser() {
-        if (!AuthenticatedUser.getToken(LoginActivity.this).equals("Bearer")) {
+        if (AuthenticatedUser.getToken(LoginActivity.this) != null) {
             // TODO: Splash loader
             this.refreshToken();
         }
