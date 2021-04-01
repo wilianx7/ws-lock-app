@@ -19,6 +19,8 @@ public class Lock implements Serializable {
     private Date updated_at;
 
     private User created_by_user;
+    private LockHistory last_lock_history;
+    private List<LockHistory> lock_histories;
     private List<User> users;
 
     public int getId() {
@@ -93,6 +95,22 @@ public class Lock implements Serializable {
         this.users = users;
     }
 
+    public LockHistory getLastLockHistory() {
+        return last_lock_history;
+    }
+
+    public void setLastLockHistory(LockHistory last_lock_history) {
+        this.last_lock_history = last_lock_history;
+    }
+
+    public List<LockHistory> getLock_histories() {
+        return lock_histories;
+    }
+
+    public void setLockHistories(List<LockHistory> lock_histories) {
+        this.lock_histories = lock_histories;
+    }
+
     public String toJson() throws JSONException {
         return "{\"lock_data\": {"
                 + "\"id\": \"" + this.id + "\","
@@ -101,6 +119,10 @@ public class Lock implements Serializable {
                 + "\"users\": " + this.stringifyUsers()
                 + "}"
                 + "}";
+    }
+
+    public String getJsonMacAddress() {
+        return "{\"mac_address\": \"" + this.mac_address + "\"}";
     }
 
     private String stringifyUsers() throws JSONException {
