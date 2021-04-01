@@ -25,6 +25,11 @@ public class AuthenticatedUser {
         getSharedPreferencesEditor(context).commit();
     }
 
+    public static void deleteUserData(Context context) {
+        getSharedPreferencesEditor(context).clear();
+        getSharedPreferencesEditor(context).commit();
+    }
+
     public static User getUser(Context context) {
         User user = new User();
 
@@ -37,7 +42,13 @@ public class AuthenticatedUser {
     }
 
     public static String getToken(Context context) {
-        return "Bearer" + getSharedPreferences(context).getString(TOKEN_KEY, null);
+        String token = getSharedPreferences(context).getString(TOKEN_KEY, null);
+
+        if (token != null) {
+            return "Bearer" + token;
+        }
+
+        return null;
     }
 
     private static SharedPreferences.Editor getSharedPreferencesEditor(Context context) {
