@@ -4,6 +4,7 @@
     <string name="app_logo">WS Lock</string>
 
     <string name="sign">Entrar</string>
+    <string name="logout">Sair</string>
     <string name="dont_have_account">Não tem uma conta?</string>
     <string name="create_account">Crie uma!</string>
 
@@ -20,11 +21,15 @@
     <string name="lock_list_floating_action_button_description">Adicionar nova fechadura</string>
     <string name="lock_list_lock_owner_description">Proprietário(a):</string>
 
-
     <string name="lock_form_name_hint">Descrição da fechadura</string>
     <string name="lock_form_mac_address_hint">Código da fechadura</string>
     <string name="lock_form_users_select_label">Usuários com acesso a fechadura:</string>
     <string name="lock_form_save_btn">Salvar</string>
+
+    <string name="last_activity_in">Última atividade em:</string>
+    <string name="last_activity_executed_by">Executada por:</string>
+    <string name="home_list_open_lock">Destrancar</string>
+    <string name="home_list_close_lock">Trancar</string>
 
     <string name="bottom_navigation_home_option">Home</string>
     <string name="bottom_navigation_locks_option">Fechaduras</string>
