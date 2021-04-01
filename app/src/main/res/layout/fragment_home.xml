@@ -1,71 +1,64 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:fillViewport="true">
+    android:layout_height="wrap_content"
+    android:orientation="vertical">
 
-    <LinearLayout
+    <ListView
+        android:id="@+id/fragment_home_list_view"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="vertical">
+        android:divider="@null"
+        android:dividerHeight="0dp"
+        android:listSelector="@android:color/transparent" />
 
-        <ListView
-            android:id="@+id/fragment_home_list_view"
+    <LinearLayout
+        android:id="@+id/welcome_illustration_layout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:gravity="center"
+        android:orientation="vertical"
+        android:visibility="gone">
+
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="150dp"
+            android:contentDescription="@string/app_logo"
+            android:src="@drawable/lock_list_illustration" />
+
+        <com.google.android.material.textview.MaterialTextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:divider="@null"
-            android:dividerHeight="0dp"
-            android:listSelector="@android:color/transparent" />
+            android:layout_marginTop="4dp"
+            android:fontFamily="sans-serif"
+            android:paddingVertical="5dp"
+            android:text="@string/lock_list_illustration_description"
+            android:textAlignment="center"
+            android:textColor="@color/gray_200"
+            android:textSize="14sp"
+            android:textStyle="bold" />
 
-        <LinearLayout
-            android:id="@+id/welcome_illustration_layout"
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/register_first_lock_btn"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:gravity="center"
-            android:orientation="vertical"
-            android:visibility="gone">
-
-            <ImageView
-                android:layout_width="match_parent"
-                android:layout_height="150dp"
-                android:contentDescription="@string/app_logo"
-                android:src="@drawable/lock_list_illustration" />
-
-            <com.google.android.material.textview.MaterialTextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="4dp"
-                android:fontFamily="sans-serif"
-                android:paddingVertical="5dp"
-                android:text="@string/lock_list_illustration_description"
-                android:textAlignment="center"
-                android:textColor="@color/gray_200"
-                android:textSize="14sp"
-                android:textStyle="bold" />
-
-            <com.google.android.material.button.MaterialButton
-                android:id="@+id/register_first_lock_btn"
-                android:layout_width="match_parent"
-                android:layout_height="40dp"
-                android:layout_margin="16dp"
-                android:background="@drawable/button_background"
-                android:text="@string/register_first_lock"
-                android:textAllCaps="false"
-                android:textColor="@color/gray_200"
-                android:textStyle="bold"
-                android:typeface="sans"
-                app:backgroundTint="@null" />
-
-        </LinearLayout>
-
-        <ProgressBar
-            android:id="@+id/home_fragment_progress_bar"
-            style="?android:attr/progressBarStyle"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:visibility="gone" />
+            android:layout_height="40dp"
+            android:layout_margin="16dp"
+            android:background="@drawable/button_background"
+            android:text="@string/register_first_lock"
+            android:textAllCaps="false"
+            android:textColor="@color/gray_200"
+            android:textStyle="bold"
+            android:typeface="sans"
+            app:backgroundTint="@null" />
 
     </LinearLayout>
 
-</ScrollView>
+    <ProgressBar
+        android:id="@+id/home_fragment_progress_bar"
+        style="?android:attr/progressBarStyle"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:visibility="gone" />
+
+</LinearLayout>
