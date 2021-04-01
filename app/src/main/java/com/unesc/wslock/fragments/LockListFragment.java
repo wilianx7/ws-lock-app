@@ -5,15 +5,15 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.ListView;
 import android.widget.ProgressBar;
 import android.widget.Toast;
 
 import androidx.fragment.app.Fragment;
 
+import com.google.android.material.button.MaterialButton;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
-import com.google.android.material.textview.MaterialTextView;
 import com.unesc.wslock.R;
 import com.unesc.wslock.activities.LockFormActivity;
 import com.unesc.wslock.adapters.LockListAdapter;
@@ -31,8 +31,7 @@ public class LockListFragment extends Fragment {
     private ListView lockListView;
     private LockListAdapter lockListAdapter;
     private ProgressBar progressBar;
-    private ImageView illustrationImage;
-    private MaterialTextView illustrationDescription;
+    private LinearLayout welcomeIllustrationLayout;
     private FloatingActionButton floatingActionButton;
 
     @Override
@@ -42,13 +41,16 @@ public class LockListFragment extends Fragment {
 
         this.lockListView = view.findViewById(R.id.fragment_lock_list_view);
         this.progressBar = view.findViewById(R.id.lock_list_progress_bar);
-        this.illustrationImage = view.findViewById(R.id.lock_list_illustration);
-        this.illustrationDescription = view.findViewById(R.id.lock_list_illustration_description);
+        this.welcomeIllustrationLayout = view.findViewById(R.id.welcome_illustration_layout);
         this.floatingActionButton = view.findViewById(R.id.lock_list_floating_action_button);
+
+        MaterialButton registerFirstLockBtn = view.findViewById(R.id.register_first_lock_btn);
+
+        registerFirstLockBtn.setOnClickListener(v -> startActivity(new Intent(getContext(), LockFormActivity.class)));
 
         this.handleLockListViewItemClick();
         this.handleFloatingButtonClick();
-        this.hideIllustrationImage();
+        this.hideWelcomeIllustration();
         this.loadLocks();
 
         return view;
@@ -84,8 +86,10 @@ public class LockListFragment extends Fragment {
                         lockListAdapter = new LockListAdapter(getContext(), responseBody);
 
                         lockListView.setAdapter(lockListAdapter);
+
+                        hideWelcomeIllustration();
                     } else {
-                        showIllustrationImage();
+                        showWelcomeIllustration();
                     }
 
                     hideProgressBar();
@@ -109,13 +113,11 @@ public class LockListFragment extends Fragment {
         this.progressBar.setVisibility(View.GONE);
     }
 
-    private void showIllustrationImage() {
-        this.illustrationImage.setVisibility(View.VISIBLE);
-        this.illustrationDescription.setVisibility(View.VISIBLE);
+    private void showWelcomeIllustration() {
+        this.welcomeIllustrationLayout.setVisibility(View.VISIBLE);
     }
 
-    private void hideIllustrationImage() {
-        this.illustrationImage.setVisibility(View.GONE);
-        this.illustrationDescription.setVisibility(View.GONE);
+    private void hideWelcomeIllustration() {
+        this.welcomeIllustrationLayout.setVisibility(View.GONE);
     }
 }
