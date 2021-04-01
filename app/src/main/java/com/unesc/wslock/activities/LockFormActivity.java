@@ -99,7 +99,7 @@ public class LockFormActivity extends AppCompatActivity {
                 hideProgressBar();
 
                 if (response.isSuccessful()) {
-                    Toast.makeText(LockFormActivity.this, "Salvo com sucesso!", Toast.LENGTH_LONG).show();
+                    Toast.makeText(LockFormActivity.this, "Salvo com sucesso!", Toast.LENGTH_SHORT).show();
 
                     startActivity(new Intent(LockFormActivity.this, MainActivity.class));
                 } else {

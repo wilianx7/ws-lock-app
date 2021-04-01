@@ -76,7 +76,7 @@ public class UserFormActivity extends AppCompatActivity {
                 hideProgressBar();
 
                 if (response.isSuccessful()) {
-                    Toast.makeText(UserFormActivity.this, "Cadastrado com sucesso!", Toast.LENGTH_LONG).show();
+                    Toast.makeText(UserFormActivity.this, "Cadastrado com sucesso!", Toast.LENGTH_SHORT).show();
 
                     startActivity(new Intent(UserFormActivity.this, LoginActivity.class));
                 } else {
