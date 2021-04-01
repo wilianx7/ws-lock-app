@@ -12,6 +12,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.unesc.wslock.R;
+import com.unesc.wslock.fragments.LockListFragment;
 import com.unesc.wslock.localstorage.AuthenticatedUser;
 import com.unesc.wslock.models.Lock;
 import com.unesc.wslock.models.lists.LockList;
@@ -26,13 +27,15 @@ import retrofit2.Response;
 
 public class LockListAdapter extends ArrayAdapter<Lock> {
     private final Context context;
+    private final LockListFragment lockListFragment;
     private final List<Lock> data;
 
-    public LockListAdapter(Context context, LockList lockList) {
+    public LockListAdapter(Context context, LockList lockList, LockListFragment lockListFragment) {
         super(context, 0, lockList.locks);
 
         this.context = context;
         this.data = lockList.locks;
+        this.lockListFragment = lockListFragment;
     }
 
     @Override
@@ -86,9 +89,9 @@ public class LockListAdapter extends ArrayAdapter<Lock> {
                 @Override
                 public void onResponse(Call<Boolean> call, Response<Boolean> response) {
                     if (response.isSuccessful()) {
-                        notifyDataSetChanged();
+                        lockListFragment.loadLocks();
 
-                        Toast.makeText(context, "Fechadura excluída com sucesso!", Toast.LENGTH_LONG).show();
+                        Toast.makeText(context, "Fechadura excluída com sucesso!", Toast.LENGTH_SHORT).show();
                     }
                 }
 

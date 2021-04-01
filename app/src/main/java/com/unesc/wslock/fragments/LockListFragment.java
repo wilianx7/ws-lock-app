@@ -56,25 +56,13 @@ public class LockListFragment extends Fragment {
         return view;
     }
 
-    private void handleLockListViewItemClick() {
-        this.lockListView.setOnItemClickListener((parent, view, position, id) -> {
-            Lock lock = lockListAdapter.getData().get(position);
-            Intent intent = new Intent(getContext(), LockFormActivity.class);
-
-            intent.putExtra("lock", lock);
-            startActivity(intent);
-        });
-    }
-
-    private void handleFloatingButtonClick() {
-        this.floatingActionButton.setOnClickListener(v -> startActivity(new Intent(getContext(), LockFormActivity.class)));
-    }
-
-    private void loadLocks() {
+    public void loadLocks() {
         this.showProgressBar();
 
         LockService lockService = BaseService.getRetrofitInstance().create(LockService.class);
         Call<LockList> request = lockService.index(AuthenticatedUser.getToken(getContext()), "createdByUser");
+
+        LockListFragment lockListFragment = this;
 
         request.enqueue(new Callback<LockList>() {
             @Override
@@ -83,7 +71,7 @@ public class LockListFragment extends Fragment {
                     LockList responseBody = response.body();
 
                     if (responseBody != null && responseBody.locks.size() > 0) {
-                        lockListAdapter = new LockListAdapter(getContext(), responseBody);
+                        lockListAdapter = new LockListAdapter(getContext(), responseBody, lockListFragment);
 
                         lockListView.setAdapter(lockListAdapter);
 
@@ -103,6 +91,20 @@ public class LockListFragment extends Fragment {
                 Toast.makeText(getContext(), "Houve um erro ao carregar suas fechaduras", Toast.LENGTH_LONG).show();
             }
         });
+    }
+
+    private void handleLockListViewItemClick() {
+        this.lockListView.setOnItemClickListener((parent, view, position, id) -> {
+            Lock lock = lockListAdapter.getData().get(position);
+            Intent intent = new Intent(getContext(), LockFormActivity.class);
+
+            intent.putExtra("lock", lock);
+            startActivity(intent);
+        });
+    }
+
+    private void handleFloatingButtonClick() {
+        this.floatingActionButton.setOnClickListener(v -> startActivity(new Intent(getContext(), LockFormActivity.class)));
     }
 
     private void showProgressBar() {
