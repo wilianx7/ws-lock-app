@@ -65,7 +65,7 @@ public class HomeFragment extends Fragment {
                 if (response.isSuccessful()) {
                     LockList responseBody = response.body();
 
-                    if (responseBody != null && responseBody.locks.size() > 0) {
+                    if (getContext() != null && responseBody != null && responseBody.locks.size() > 0) {
                         homeListAdapter = new HomeListAdapter(getContext(), responseBody, homeFragment);
 
                         homeListView.setAdapter(homeListAdapter);

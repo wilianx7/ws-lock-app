@@ -70,7 +70,7 @@ public class LockListFragment extends Fragment {
                 if (response.isSuccessful()) {
                     LockList responseBody = response.body();
 
-                    if (responseBody != null && responseBody.locks.size() > 0) {
+                    if (getContext() != null && responseBody != null && responseBody.locks.size() > 0) {
                         lockListAdapter = new LockListAdapter(getContext(), responseBody, lockListFragment);
 
                         lockListView.setAdapter(lockListAdapter);
