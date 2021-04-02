@@ -69,12 +69,12 @@ public class HomeListAdapter extends ArrayAdapter<Lock> {
 
             if (lock.getState().equals("LOCKED")) {
                 lockNameIcon.setImageResource(R.drawable.ic_baseline_lock_red_24);
-                openLockImageView.setBackground(ContextCompat.getDrawable(context, R.drawable.rounded_inactive_shape));
-                closeLockImageView.setBackground(ContextCompat.getDrawable(context, R.drawable.rounded_active_shape));
-            } else {
-                lockNameIcon.setImageResource(R.drawable.ic_baseline_lock_open_teal_24);
                 openLockImageView.setBackground(ContextCompat.getDrawable(context, R.drawable.rounded_active_shape));
                 closeLockImageView.setBackground(ContextCompat.getDrawable(context, R.drawable.rounded_inactive_shape));
+            } else {
+                lockNameIcon.setImageResource(R.drawable.ic_baseline_lock_open_teal_24);
+                openLockImageView.setBackground(ContextCompat.getDrawable(context, R.drawable.rounded_inactive_shape));
+                closeLockImageView.setBackground(ContextCompat.getDrawable(context, R.drawable.rounded_active_shape));
             }
 
             openLockImageView.setOnClickListener(v -> openDoor(lock));
