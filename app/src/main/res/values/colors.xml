@@ -26,6 +26,9 @@
     <color name="gray_800">#2d3748</color>
     <color name="gray_900">#1a202c</color>
 
+    <color name="green_500">#89c43f</color>
+
+    <color name="red_500">#f56565</color>
     <color name="red_700">#A33838</color>
     <color name="red_800">#FF9C3838</color>
 

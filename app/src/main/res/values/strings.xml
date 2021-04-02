@@ -31,6 +31,13 @@
     <string name="home_list_open_lock">Destrancar</string>
     <string name="home_list_close_lock">Trancar</string>
     <string name="register_first_lock">Cadastrar Primeira Fechadura</string>
+    <string name="lock_history_list_floating_action_button_description">Selecionar fechadura</string>
+
+    <string name="lock_history_list_illustration_description">Ainda não há históricos registrados</string>
+    <string name="lock_list_history_lock_description">Fechadura:</string>
+    <string name="lock_list_history_username_description">Usuário:</string>
+    <string name="lock_list_history_description">Descrição:</string>
+    <string name="lock_list_history_created_at">Data:</string>
 
     <string name="bottom_navigation_home_option">Home</string>
     <string name="bottom_navigation_locks_option">Fechaduras</string>
