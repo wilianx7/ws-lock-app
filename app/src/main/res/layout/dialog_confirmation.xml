@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:background="@drawable/default_dialog_background"
+    android:padding="20dp">
+
+    <TextView
+        android:id="@+id/dialog_confirmation_title"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:text="Title"
+        android:textColor="@color/gray_200"
+        android:textSize="20sp"
+        android:textStyle="bold" />
+
+    <TextView
+        android:id="@+id/dialog_confirmation_message"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/dialog_confirmation_title"
+        android:layout_marginTop="8dp"
+        android:text="Message"
+        android:textColor="@color/gray_200"
+        android:textSize="16sp" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/dialog_confirmation_message"
+        android:layout_marginTop="20dp"
+        android:orientation="horizontal">
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/dialog_confirmation_positive_btn"
+            android:layout_width="match_parent"
+            android:layout_height="38dp"
+            android:layout_marginEnd="10dp"
+            android:layout_weight="1"
+            android:background="@drawable/green_button_background"
+            android:text="@string/dialog_confirmation_positive_text"
+            android:textAllCaps="false"
+            android:textColor="@color/gray_200"
+            android:textStyle="bold"
+            android:typeface="sans"
+            app:backgroundTint="@null" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/dialog_confirmation_negative_btn"
+            android:layout_width="match_parent"
+            android:layout_height="38dp"
+            android:layout_marginStart="10dp"
+            android:layout_weight="1"
+            android:background="@drawable/red_button_background"
+            android:text="@string/dialog_confirmation_negative_text"
+            android:textAllCaps="false"
+            android:textColor="@color/gray_200"
+            android:textStyle="bold"
+            android:typeface="sans"
+            app:backgroundTint="@null" />
+
+    </LinearLayout>
+
+</RelativeLayout>
