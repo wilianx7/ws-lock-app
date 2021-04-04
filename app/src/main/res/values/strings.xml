@@ -43,4 +43,10 @@
     <string name="bottom_navigation_locks_option">Fechaduras</string>
     <string name="bottom_navigation_lock_histories_option">Histórico</string>
     <string name="bottom_navigation_user_profile_option">Perfil</string>
+
+    <string name="dialog_confirmation_positive_text">Confirmar</string>
+    <string name="dialog_confirmation_negative_text">Cancelar</string>
+
+    <string name="dialog_lock_filter_title">Filtro de Fechadura</string>
+    <string name="dialog_lock_filter_message">Selecione uma fechadura:</string>
 </resources>
