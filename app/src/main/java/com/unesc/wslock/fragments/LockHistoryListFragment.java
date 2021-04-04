@@ -4,6 +4,7 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
 import android.widget.LinearLayout;
 import android.widget.ListView;
 import android.widget.ProgressBar;
@@ -14,7 +15,9 @@ import androidx.fragment.app.Fragment;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.unesc.wslock.R;
 import com.unesc.wslock.adapters.LockHistoryListAdapter;
+import com.unesc.wslock.dialogs.LockFilterDialog;
 import com.unesc.wslock.localstorage.AuthenticatedUser;
+import com.unesc.wslock.models.Lock;
 import com.unesc.wslock.models.lists.LockHistoryList;
 import com.unesc.wslock.services.BaseService;
 import com.unesc.wslock.services.LockHistoryService;
@@ -29,6 +32,7 @@ public class LockHistoryListFragment extends Fragment {
     private ProgressBar progressBar;
     private LinearLayout welcomeIllustrationLayout;
     private FloatingActionButton floatingActionButton;
+    private LockFilterDialog lockFilterDialog;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -41,16 +45,17 @@ public class LockHistoryListFragment extends Fragment {
         this.floatingActionButton = view.findViewById(R.id.lock_list_history_floating_action_button);
 
         this.hideWelcomeIllustration();
-        this.loadLockHistories();
+        this.loadLockHistories(null);
+        this.handleFloatingButtonClick();
 
         return view;
     }
 
-    public void loadLockHistories() {
+    public void loadLockHistories(String lockId) {
         this.showProgressBar();
 
         LockHistoryService lockHistoryService = BaseService.getRetrofitInstance().create(LockHistoryService.class);
-        Call<LockHistoryList> request = lockHistoryService.index(AuthenticatedUser.getToken(getContext()), "lock,user", null);
+        Call<LockHistoryList> request = lockHistoryService.index(AuthenticatedUser.getToken(getContext()), "lock,user", lockId);
 
         request.enqueue(new Callback<LockHistoryList>() {
             @Override
@@ -79,6 +84,20 @@ public class LockHistoryListFragment extends Fragment {
                 Toast.makeText(getContext(), "Houve um erro ao carregar os históricos", Toast.LENGTH_LONG).show();
             }
         });
+    }
+
+    private void handleFloatingButtonClick() {
+        AdapterView.OnItemClickListener onItemClickListener = (parent, view, position, id) -> {
+            Lock lock = lockFilterDialog.lockListAdapter.getData().get(position);
+
+            loadLockHistories(String.valueOf(lock.getId()));
+
+            lockFilterDialog.dismiss();
+        };
+
+        this.lockFilterDialog = new LockFilterDialog(getContext(), onItemClickListener);
+
+        this.floatingActionButton.setOnClickListener(v -> lockFilterDialog.show());
     }
 
     private void showProgressBar() {
