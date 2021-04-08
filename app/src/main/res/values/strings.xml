@@ -12,7 +12,9 @@
     <string name="username_hint">Usuário</string>
     <string name="login_hint">Login ou e-mail</string>
     <string name="register_user">Cadastrar</string>
+    <string name="save_user">Salvar</string>
     <string name="password_hint">Senha</string>
+    <string name="new_password_hint">Nova senha</string>
     <string name="password_confirmation_hint">Confirmação de senha</string>
     <string name="name_hint">Nome</string>
     <string name="email_hint">E-mail</string>
