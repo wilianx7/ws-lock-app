@@ -126,6 +126,10 @@ public class Lock implements Serializable {
     }
 
     private String stringifyUsers() throws JSONException {
+        if (this.getUsers() == null) {
+            return "[]";
+        }
+
         JSONArray formattedUsers = new JSONArray();
 
         for (User user : this.getUsers()) {
