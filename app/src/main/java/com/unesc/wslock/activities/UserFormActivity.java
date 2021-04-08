@@ -31,7 +31,6 @@ public class UserFormActivity extends AppCompatActivity {
     private TextInputEditText passwordConfirmationInput;
     private MaterialButton saveButton;
     private ProgressBar progressBar;
-    private Toolbar toolbar;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -45,22 +44,20 @@ public class UserFormActivity extends AppCompatActivity {
         this.passwordConfirmationInput = findViewById(R.id.password_confirmation_input);
         this.saveButton = findViewById(R.id.save_user_button);
         this.progressBar = findViewById(R.id.user_form_progress_bar);
-        this.toolbar = findViewById(R.id.user_form_toolbar);
+
+        Toolbar toolbar = findViewById(R.id.user_form_toolbar);
 
         toolbar.setTitle("Cadastro de Usuário");
         toolbar.setNavigationIcon(R.drawable.ic_baseline_arrow_back_24);
         setSupportActionBar(toolbar);
 
-        this.saveButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                showProgressBar();
+        this.saveButton.setOnClickListener(v -> {
+            showProgressBar();
 
-                if (checkRequiredFields()) {
-                    checkLoginUnique();
-                } else {
-                    hideProgressBar();
-                }
+            if (checkRequiredFields()) {
+                checkLoginUnique();
+            } else {
+                hideProgressBar();
             }
         });
     }
@@ -68,7 +65,7 @@ public class UserFormActivity extends AppCompatActivity {
     private void save() {
         UserService userService = BaseService.getRetrofitInstance().create(UserService.class);
         RequestBody body = RequestBody.create(okhttp3.MediaType.parse("application/json; charset=utf-8"), this.makeUserForSave().toJson());
-        Call<User> request = userService.createOrUpdate(body);
+        Call<User> request = userService.create(body);
 
         request.enqueue(new Callback<User>() {
             @Override
