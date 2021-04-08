@@ -20,7 +20,10 @@ public class AuthenticatedUser {
         getSharedPreferencesEditor(context).putString(LOGIN_KEY, user.getLogin());
         getSharedPreferencesEditor(context).putString(EMAIL_KEY, user.getEmail());
         getSharedPreferencesEditor(context).putString(NAME_KEY, user.getName());
-        getSharedPreferencesEditor(context).putString(TOKEN_KEY, token);
+
+        if (token != null) {
+            getSharedPreferencesEditor(context).putString(TOKEN_KEY, token);
+        }
 
         getSharedPreferencesEditor(context).commit();
     }
