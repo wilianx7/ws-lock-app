@@ -76,6 +76,10 @@ public class LockListAdapter extends ArrayAdapter<Lock> {
         return data;
     }
 
+    public void clearData() {
+        this.data.clear();
+    }
+
     private void deleteLock(Lock lock) {
         View.OnClickListener onConfirm = new View.OnClickListener() {
             @Override
