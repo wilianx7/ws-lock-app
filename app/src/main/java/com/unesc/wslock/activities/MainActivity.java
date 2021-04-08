@@ -18,6 +18,7 @@ import com.unesc.wslock.R;
 import com.unesc.wslock.fragments.HomeFragment;
 import com.unesc.wslock.fragments.LockHistoryListFragment;
 import com.unesc.wslock.fragments.LockListFragment;
+import com.unesc.wslock.fragments.UserProfileFragment;
 import com.unesc.wslock.localstorage.AuthenticatedUser;
 import com.unesc.wslock.services.AuthService;
 import com.unesc.wslock.services.BaseService;
@@ -84,6 +85,11 @@ public class MainActivity extends AppCompatActivity {
                 return true;
 
             case R.id.bottom_navigation_user_profile_option:
+                fragmentManager.beginTransaction()
+                        .replace(R.id.main_container, new UserProfileFragment(), null)
+                        .setReorderingAllowed(true)
+                        .commit();
+
                 return true;
 
             default:
