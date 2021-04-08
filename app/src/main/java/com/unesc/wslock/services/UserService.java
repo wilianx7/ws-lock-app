@@ -24,5 +24,8 @@ public interface UserService {
     Call<Boolean> destroy(@Header("Authorization") String authorization, @Path("id") String id);
 
     @PUT("users/create-or-update")
-    Call<User> createOrUpdate(@Body RequestBody object);
+    Call<User> create(@Body RequestBody object);
+
+    @PUT("users/create-or-update")
+    Call<User> update(@Header("Authorization") String authorization, @Body RequestBody object);
 }
