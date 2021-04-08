@@ -162,15 +162,17 @@ public class LockFormActivity extends AppCompatActivity {
         if (!this.isEditing || this.isLockOwner()) {
             this.lock.setMacAddress(this.macAddressInput.getText().toString());
 
-            List<User> selectedUsers = new ArrayList<>();
+            if (this.userSelectAdapter != null) {
+                List<User> selectedUsers = new ArrayList<>();
 
-            for (User user : this.userSelectAdapter.getData()) {
-                if (user.hasLockAccess()) {
-                    selectedUsers.add(user);
+                for (User user : this.userSelectAdapter.getData()) {
+                    if (user.hasLockAccess()) {
+                        selectedUsers.add(user);
+                    }
                 }
-            }
 
-            this.lock.setUsers(selectedUsers);
+                this.lock.setUsers(selectedUsers);
+            }
         }
 
         return this.lock;

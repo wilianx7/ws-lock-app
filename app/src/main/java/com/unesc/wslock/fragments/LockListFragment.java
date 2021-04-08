@@ -77,6 +77,10 @@ public class LockListFragment extends Fragment {
 
                         hideWelcomeIllustration();
                     } else {
+                        if (lockListAdapter != null) {
+                            lockListAdapter.clearData();
+                        }
+
                         showWelcomeIllustration();
                     }
 
