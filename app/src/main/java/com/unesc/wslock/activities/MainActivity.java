@@ -116,6 +116,10 @@ public class MainActivity extends AppCompatActivity {
         return super.onOptionsItemSelected(item);
     }
 
+    @Override
+    public void onBackPressed() {
+    }
+
     private void logout() {
         AuthService authService = BaseService.getRetrofitInstance().create(AuthService.class);
         Call<Boolean> request = authService.logout(AuthenticatedUser.getToken(MainActivity.this));
