@@ -3,6 +3,7 @@ package com.unesc.wslock.activities;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.LinearLayout;
 import android.widget.ProgressBar;
 import android.widget.Toast;
 
@@ -10,7 +11,6 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import com.google.android.material.button.MaterialButton;
 import com.google.android.material.textfield.TextInputEditText;
-import com.google.android.material.textview.MaterialTextView;
 import com.unesc.wslock.R;
 import com.unesc.wslock.dtos.AuthDTO;
 import com.unesc.wslock.localstorage.AuthenticatedUser;
@@ -49,14 +49,13 @@ public class LoginActivity extends AppCompatActivity {
             }
         });
 
-        MaterialTextView createAccountTextView = findViewById(R.id.create_account_text_view);
+        LinearLayout createAccount = findViewById(R.id.create_account_linear_layout);
 
-        createAccountTextView.setOnClickListener(v -> startActivity(new Intent(LoginActivity.this, UserFormActivity.class)));
+        createAccount.setOnClickListener(v -> startActivity(new Intent(LoginActivity.this, UserFormActivity.class)));
     }
 
     private void checkAuthenticatedUser() {
         if (AuthenticatedUser.getToken(LoginActivity.this) != null) {
-            // TODO: Splash loader
             this.refreshToken();
         }
     }
