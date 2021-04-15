@@ -23,6 +23,7 @@ import com.unesc.wslock.models.lists.UserList;
 import com.unesc.wslock.services.BaseService;
 import com.unesc.wslock.services.LockService;
 import com.unesc.wslock.services.UserService;
+import com.unesc.wslock.utils.MaskWatcher;
 
 import org.json.JSONException;
 
@@ -61,6 +62,8 @@ public class LockFormActivity extends AppCompatActivity {
         this.userSelectListView = findViewById(R.id.lock_form_users_list);
         this.userSelectLabel = findViewById(R.id.lock_form_users_select_label);
         this.toolbar = findViewById(R.id.lock_form_toolbar);
+
+        this.macAddressInput.addTextChangedListener(new MaskWatcher("##:##:##:##:##:##"));
 
         this.checkIntentExtras();
 
@@ -103,7 +106,7 @@ public class LockFormActivity extends AppCompatActivity {
 
                     startActivity(new Intent(LockFormActivity.this, MainActivity.class));
                 } else {
-                    Toast.makeText(LockFormActivity.this, "Houve um erro ao salvar a fechadura", Toast.LENGTH_LONG).show();
+                    Toast.makeText(LockFormActivity.this, "Código já cadastrado!", Toast.LENGTH_LONG).show();
                 }
             }
 
@@ -195,6 +198,7 @@ public class LockFormActivity extends AppCompatActivity {
                 this.userSelectListView.setVisibility(View.GONE);
             } else {
                 this.macAddressInput.setText(this.lock.getMacAddress());
+                this.macAddressInput.setEnabled(false);
             }
         }
     }
