@@ -4,8 +4,7 @@ import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
 
 public class BaseService {
-    /** localhost */
-    public static final String BASE_URL = "http://10.0.2.2:8000/";
+    public static final String BASE_URL = "https://api-ws-lock.tecnoelo.com.br/";
 
     private static Retrofit retrofitInstance;
 
